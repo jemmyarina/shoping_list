@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.card {
+  color: white;
+  width: 80%;
+  max-width: 1000px;
+  background: #C45212;
+  border-radius: 6px;
+  margin: auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card > div {
+  overflow: hidden;
+  width: 50%;
+}
+
+.card > div form {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card__right {
+  padding: 2rem;
+}
+
+.card__right label {
+  padding: 2rem 0 0 0;
+}
+
+.card__right button {
+  margin-top: 3rem;
+}
+
+.card__right input {
+  font-size: 1.2rem;
+}
+
+/* .card img {
+  width: 100%;
+} */
