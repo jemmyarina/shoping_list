@@ -1,5 +1,5 @@
 .navbar-logged {
-    background: #C45212;
+    background: #8FC89C;
 }
 
 .navbar-logged__inner {
@@ -34,11 +34,32 @@
 }
 
 .navbar-logged__links .profile {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
     margin-left: 2rem;
 }
 
 .navbar-logged__links .profile img {
+    width: 100% !important;
+}
+
+.navbar-logged__profile-drop {
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    background: white;
+    /* padding: 1rem; */
+    box-shadow: 0 0 10px #ccc;
+    width: 100px;
+}
+
+.navbar-logged__profile-drop li {
     width: 100%;
+    padding: 1rem 2rem;
+}
+
+.navbar-logged__profile-drop li:hover {
+    background: #8FC89C;
 }

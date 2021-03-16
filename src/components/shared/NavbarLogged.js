@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { firebase } from '../../config/firebase';
 import '../styles/navbarLogged.css';
 
 const NavbarLogged = () => {
+    const [showLogout, setShowLogout] = useState(false);
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    const logoutFunction = () => firebase.auth().signOut();
+
     return (
         <div className="navbar-logged">
         <div className="navbar-logged__inner">
             <div className="navbar-logged__logo">Shopping<span>List</span></div>
             <div className="navbar-logged__links">
-                <ul>
-                    <li><Link to="/category/create" className={`btn-dark`}>Add category</Link></li>
-                    <li className="profile"><img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="profile"/></li>
+                <ul className="">
+                    {/* <li><Link to="/category/create" className={`btn-dark`}>Add category</Link></li> */}
+                    <li className="profile" onClick={() => setShowLogout(!showLogout)}><img src={userData.photoURL} alt="profile"/></li>
                 </ul>
+                {showLogout ? <ul className="navbar-logged__profile-drop">
+                    <li><Link onClick={logoutFunction} to="/signin">Logout</Link></li>
+                </ul> : ""}
             </div>
         </div>
         </div>

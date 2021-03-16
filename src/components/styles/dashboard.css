@@ -1,11 +1,20 @@
+.page__screen {
+    display: flex;
+}
+
+.page__screen main {
+    margin: 0 auto;
+}
+
 .dashboard__actions {
     display: flex;
     justify-content: space-around;
+    margin: 2rem 0;
 }
 
 .dashboard__list ul {
-    width: 80%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .dashboard__list ul li button {
@@ -18,9 +27,9 @@
 
 .dashboard__list ul li {
     display: grid;
-    margin: 1rem 0 ;
+    margin: .2rem 0;
     place-items: center;
-    border-radius: 10px;
+    border-radius: 6px;
     background: white ;
     grid-gap: 2rem;
     grid-template-columns: 1fr 6fr 3fr 6fr 1fr 2fr;
@@ -41,22 +50,27 @@
 }
 
 .food {
-    background: #8FC89C;
+    background: #D4927F;
     color: white;
 }
 
 .hygiene {
-    background: lightblue;
+    background: #8FBCDF;
     color: white;
 }
 
 .clothes {
-    background: black;
+    background: #9849A5;
     color: white;
 }
 
 .fruits {
     background: #FFAE2C;
+    color: white;
+}
+
+.others {
+    background: #5e5e5e;
     color: white;
 }
   

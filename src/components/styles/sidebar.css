@@ -1,0 +1,17 @@
+.sidebar {
+    background: white;
+    width: 80%;
+    max-width: 250px;
+}
+
+.sidebar__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 3px 0 gray;
+    margin-bottom: 3px;
+    padding: 1rem;
+}
+.sidebar__list-item span {
+    font-weight: bolder;
+}
