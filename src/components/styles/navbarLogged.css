@@ -1,0 +1,44 @@
+.navbar-logged {
+    background: #C45212;
+}
+
+.navbar-logged__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem .8rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.navbar-logged__logo {
+    text-transform: uppercase;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.8rem;
+}
+
+.navbar-logged__logo span {
+    color: #3E721D;
+}
+
+.navbar-logged__links .btn-light {
+    margin-right: 1.2rem;
+}
+
+.navbar-logged__links ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logged__links .profile {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 2rem;
+}
+
+.navbar-logged__links .profile img {
+    width: 100%;
+}

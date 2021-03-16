@@ -1,0 +1,62 @@
+.dashboard__actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dashboard__list ul {
+    width: 80%;
+    max-width: 900px;
+}
+
+.dashboard__list ul li button {
+    font-weight: bolder;
+}
+
+.dashboard__list ul li.done button {
+    font-weight: lighter;
+}
+
+.dashboard__list ul li {
+    display: grid;
+    margin: 1rem 0 ;
+    place-items: center;
+    border-radius: 10px;
+    background: white ;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 6fr 3fr 6fr 1fr 2fr;
+    padding: 1rem;
+    font-weight: bolder;
+}
+
+.dashboard__list ul .done {
+    background: #E5E5E5;
+    font-weight: lighter;
+}
+
+.category {
+    border-radius: 6px;
+    padding: .4rem 0;
+    width: 8rem;
+    text-align: center;
+}
+
+.food {
+    background: #8FC89C;
+    color: white;
+}
+
+.hygiene {
+    background: lightblue;
+    color: white;
+}
+
+.clothes {
+    background: black;
+    color: white;
+}
+
+.fruits {
+    background: #FFAE2C;
+    color: white;
+}
+  

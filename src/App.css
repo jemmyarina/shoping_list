@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,8 +18,19 @@ a {
   color: black;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+.page {
+  background: #F3F3F3;
+  height: 100vh;
+}
+
 .card {
   color: white;
+  height: 500px;
   width: 80%;
   max-width: 1000px;
   background: #C45212;
@@ -23,7 +40,9 @@ a {
   overflow: hidden;
 }
 
-.card h2 {
+.card h2,
+.card p,
+.card footer {
   text-align: center;
 }
 
@@ -39,22 +58,79 @@ a {
   justify-content: space-around;
 }
 
+.card__left {
+  position: relative;
+}
+
+.card__left h3 {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  line-height: 2rem;
+}
+
 .card__right {
   padding: 2rem;
 }
 
 .card__right label {
-  padding: 2rem 0 0 0;
+  padding: 1rem 0 .2rem 0;
 }
 
 .card__right button {
-  margin-top: 3rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.card__right a {
+  color: #FFDF95;
+  text-decoration: underline;
 }
 
 .card__right input {
   font-size: 1.2rem;
+  padding: .2rem;
 }
 
-/* .card img {
-  width: 100%;
-} */
+.card__right footer {
+  margin-top: 2rem;
+}
+
+.btn {
+  border-radius: 6px;
+  text-transform: capitalize;
+  padding: .3rem .8rem;
+  background: white;
+  box-shadow: 0px 0px 5px #222;
+}
+
+.btn-light, .btn-dark {
+  border-radius: 6px;
+  text-transform: capitalize;
+  padding: .3rem .8rem;
+  box-shadow: 0px 0px 5px #222;
+}
+
+.btn-light {
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+}
+
+.btn-light:hover {
+  background-color: #3E721D;
+  color: white;
+  border: none;
+}
+
+.btn-dark {
+  background-color: #3E721D;
+  color: white;
+}
+
+.btn-dark:hover {
+  color: black;
+}
