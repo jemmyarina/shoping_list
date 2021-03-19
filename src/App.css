@@ -77,26 +77,27 @@ ul {
   padding: 2rem;
 }
 
-.card__right label {
+.form label {
   padding: 1rem 0 .2rem 0;
+  text-align: left !important;
 }
 
-.card__right button {
+.form button {
   margin-top: 2rem;
   font-size: 1.2rem;
 }
 
-.card__right a {
+.form a {
   color: #FFDF95;
   text-decoration: underline;
 }
 
-.card__right input {
+.form input, .form select {
   font-size: 1.2rem;
   padding: .2rem;
 }
 
-.card__right footer {
+.form footer {
   margin-top: 2rem;
 }
 

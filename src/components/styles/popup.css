@@ -1,0 +1,28 @@
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0000009c;
+}
+
+.popup {
+    background: white;
+    position: fixed;
+    z-index: 2;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    padding: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-top: 10px solid rgb(238, 155, 0);
+    border-radius: 10px;
+}
+
+.popup .form {
+    display: flex;
+    flex-direction: column;
+}

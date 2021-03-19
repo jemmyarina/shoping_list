@@ -34,7 +34,7 @@ const SignIn = () => {
             <div className="card">
                 <div className="card__left"><img src={Shop} alt="shop"/><h3>App to help you recording shopping items  of your daily shoppings in a supermarket</h3></div>
                 <div className="card__right">
-                    <form onSubmit={handleSignin}>
+                    <form className="form" onSubmit={handleSignin}>
                         <h2>Welcome!</h2>
                         <p>sign into your account</p>
                         <label htmlFor="email">Email</label>

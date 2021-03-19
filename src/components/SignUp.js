@@ -47,7 +47,7 @@ const SignUp = () => {
             <div className="card">
                 <div className="card__left"><img src={Shop} alt="shop"/><h3>App to help you recording shoping items  of your daily shopings in a supermarket</h3></div>
                 <div className="card__right">
-                    <form onSubmit={handleSignup}>
+                    <form className="form" onSubmit={handleSignup}>
                         <h2>Welcome!</h2>
                         <p>sign up to create your account</p>
                         <label htmlFor="name">Name</label>
