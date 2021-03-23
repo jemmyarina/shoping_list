@@ -2,6 +2,10 @@
     background: white;
     width: 80%;
     max-width: 250px;
+    /* position: fixed;
+    left: 0;
+    height: 100%; */
+    /* margin-top: 6rem; */
 }
 
 .sidebar__list-item {

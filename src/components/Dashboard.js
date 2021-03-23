@@ -5,20 +5,10 @@ import NavbarLogged from './shared/NavbarLogged';
 import SidebarNav from './shared/SidebarNav';
 import CreateItem from './CreateItem';
 import UpdateItem from './UpdateItem';
+import Item from './Item';
 import './styles/dashboard.css';
 
-const Item = ({ item, setItemDone, setItemUpdate }) => {
-    return (
-        <li className={item.done && 'done'}>
-            <input type="checkbox" checked={item.done && true} onChange={() => setItemDone(item.id)} />
-            <p>{item.name}</p>
-            <span className={`${item.category} category`}>{item.category}</span>
-            <p>last updated {item.date}</p>
-            <button className="edit category" disabled={item.done? true : false} onClick={() => setItemUpdate(item.id)}>edit</button>
-            <button className="delete category">delete</button>
-        </li>
-    );
-}
+
 
 const Dashboard = () => {
     const history = useHistory();
@@ -31,32 +21,34 @@ const Dashboard = () => {
         category: '',
         id: '',
     });
-    const [items, setItems] = useState([
-        // { id: 1, done: false, name: 'name of item1', category: 'food', date: '12th March 2021' },
-        // { id: 2, done: false, name: 'name of item2', category: 'hygiene', date: '12th March 2021' },
-        // { id: 3, done: true, name: 'name of item3', category: 'clothes', date: '12th March 2021' },
-        // { id: 4, done: true, name: 'name of item4', category: 'fruits', date: '12th March 2021' },
-        // { id: 5, done: true, name: 'name of item4', category: 'others', date: '12th March 2021' },
-    ]);
+    const [items, setItems] = useState([]);
 
-    const setItemDone = (id) => {
+    // const setItemDone = (id) => {
+    //     const item = items.find((item) => item.id === id);
+    //     const changedItem = { ...item, done: item.done ? false : true };
+    //     const fitleredItem = items.filter((item) => item.id !== id);
+    //     setItems(item.done ? [changedItem, ...fitleredItem] : [...fitleredItem, changedItem])
+    // }
+
+    const setItemDone = async (id) => {
         const item = items.find((item) => item.id === id);
-        const changedItem = { ...item, done: item.done ? false : true };
-        const fitleredItem = items.filter((item) => item.id !== id);
-        setItems(item.done ? [changedItem, ...fitleredItem] : [...fitleredItem, changedItem])
+
+        firebase.firestore().collection('shopping-list').doc(id).update({ 
+            done: item.done?false:true,
+        });
     }
 
     useEffect(() => {
-        db.collection('shopping-list').orderBy('done').get().then(list => {
-
+        db.collection('shopping-list').orderBy('done').onSnapshot(snaps => {
             const lists = [];
 
-            list.docs.forEach(oneItem => {
+            snaps.docs.forEach(oneItem => {
                 const data = oneItem.data();
                 lists.push({ ...data, id: oneItem.id });
             });
 
             setItems(lists);
+
         });
     }, [db])
 
@@ -84,6 +76,19 @@ const Dashboard = () => {
 
         setShowEditor(true)
     }
+    const handleDeleteItem =(id)=>{
+        const sure = window.confirm('Are you sure to delete?');
+
+        if(sure===true){
+            firebase.firestore().collection("shopping-list").doc(id).delete().then(() => {
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            })
+        }
+    }
+
+
 
     return (
         <div className="page dashboard">
@@ -112,7 +117,7 @@ const Dashboard = () => {
                 </header>
                 <section className="dashboard__list">
                     <ul>
-                        {items.map(item => <Item item={item} setItemDone={setItemDone} setItemUpdate={setItemUpdate} />)}
+                        {items.map(item => <Item data={item} setItemDone={setItemDone} onDelete={handleDeleteItem} setItemUpdate={setItemUpdate} />)}
                     </ul>
                 </section>
             </main>

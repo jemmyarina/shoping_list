@@ -3,7 +3,7 @@ import moment from 'moment';
 import Popup from './shared/Popup';
 import { firebase } from '../config/firebase';
 
-const UpdateItem = ({ hidePopup, itemId, name, description, category }) => {
+const UpdateItem = ({ hidePopup, id: itemId, name, description, category }) => {
     const db = firebase.firestore();
     const initItem = {
         brand: name || "",
@@ -15,7 +15,7 @@ const UpdateItem = ({ hidePopup, itemId, name, description, category }) => {
     const handleUpdateItem = async e => {
         e.preventDefault();
 
-        await db.collection('shopping-list').doc(itemId).set({ 
+        await db.collection('shopping-list').doc(itemId).update({ 
             name: item.brand,
             category: item.category,
             description: item.description,
@@ -39,7 +39,7 @@ const UpdateItem = ({ hidePopup, itemId, name, description, category }) => {
                 <label htmlFor="description">Description</label>
                 <input type="text" id="description" name="description" value={item.description} onChange={(e) => setItem({ ...item, description: e.target.value })} />
                 <label htmlFor="category">Category</label>
-                <select name="category" id="category" onChange={e=>setItem({...item, category: e.target.value})}>
+                <select name="category" id="category" value={item.category} onChange={e=>setItem({...item, category: e.target.value})}>
                     <option value="others" selected>Others</option>
                     <option value="food">Food</option>
                     <option value="fruits">Fruits</option>
@@ -47,7 +47,7 @@ const UpdateItem = ({ hidePopup, itemId, name, description, category }) => {
                     <option value="hygiene">Hygiene</option>
                     <option value="drinks">Drinks</option>
                 </select>
-
+                
                 <button className="btn-dark">Update Item</button>
             </form>
         </Popup>
