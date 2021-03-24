@@ -39,13 +39,19 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        db.collection('shopping-list').orderBy('done').onSnapshot(snaps => {
+        const userId=localStorage.getItem("userData");
+        const obj = JSON.parse(userId);
+        const uid=obj.uid;
+        console.log(uid);
+        db.collection('shopping-list').where("owner", "==", uid).onSnapshot(snaps => {
             const lists = [];
 
             snaps.docs.forEach(oneItem => {
                 const data = oneItem.data();
                 lists.push({ ...data, id: oneItem.id });
             });
+
+            lists.sort((x, y) => x.done === y.done ? 0 : x.done ? 1 : -1);
 
             setItems(lists);
 
@@ -117,7 +123,7 @@ const Dashboard = () => {
                 </header>
                 <section className="dashboard__list">
                     <ul>
-                        {items.map(item => <Item data={item} setItemDone={setItemDone} onDelete={handleDeleteItem} setItemUpdate={setItemUpdate} />)}
+                        {items.length > 0 ? (items.map(item => <Item data={item} setItemDone={setItemDone} onDelete={handleDeleteItem} setItemUpdate={setItemUpdate}/>)):<p>No item to shop yet!</p>}
                     </ul>
                 </section>
             </main>

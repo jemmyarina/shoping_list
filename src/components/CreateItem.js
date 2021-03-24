@@ -13,6 +13,10 @@ const CreateItem = ({ hidePopup }) => {
     } 
     const [item, setItem] = React.useState(initItem);
 
+    const allUserData = localStorage.getItem("userData");
+    const obj=JSON.parse(allUserData);
+    const userId=obj.uid;
+    // console.log(userId);
     const handleCreateItem = async e => {
         e.preventDefault();
 
@@ -22,6 +26,7 @@ const CreateItem = ({ hidePopup }) => {
             description: item.description,
             done: item.done,
             date: moment(Date.now()).format('Do MMMM YYYY'),
+            owner:userId,
          });
 
         console.log(`Document with ${docRef.id} id: successful created!`);
