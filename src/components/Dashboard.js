@@ -19,29 +19,47 @@ const Dashboard = () => {
         category: '',
         id: '',
     });
+
+    //states
     const [items, setItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState(items);
+    // const [ filteredCat, setFilteredCat] = useState(items);
+    const [catego, setCategory]=useState("category");
+    const [status, setStatus]=useState("all");
 
-        const [status, setStatus]=useState("all");
-
-        const handleStatus = (e) =>{
-
-            setStatus(e.target.value);
-            
-            let itemsToShow = [];
-            if (e.target.value === 'bought') {
-                itemsToShow = items.filter(itm => itm.done === true);
-            }
-            else if(e.target.value === 'unbought'){
-                itemsToShow = items.filter(itm => itm.done === false);
-            }
-            else{
-                itemsToShow = items;
-            }
-
-            setFilteredItems(itemsToShow);
-            
+    //filter by category
+    const handleCategory = (e) =>{
+        setCategory(e.target.value);
+        let categoryToShow = [];
+        if(e.target.value ==="food") categoryToShow = items.filter(itm => itm.category ==="food");
+        else if(e.target.value ==="drinks") categoryToShow = items.filter(itm => itm.category ==="drinks");
+        else if(e.target.value ==="hygiene") categoryToShow = items.filter(itm => itm.category ==="hygiene");
+        else if(e.target.value ==="clothes") categoryToShow = items.filter(itm => itm.category ==="clothes");
+        else if(e.target.value ==="others") categoryToShow = items.filter(itm => itm.category ==="others");
+        else{
+            categoryToShow= items;
         }
+    
+        setFilteredItems(categoryToShow)
+    } 
+
+    //filter by Status of ALL, BOUGHT or UNBOUGHT
+    const handleStatus = (e) =>{
+    setStatus(e.target.value);
+            
+        let itemsToShow = [];
+        if (e.target.value === 'bought') {
+            itemsToShow = items.filter(itm => itm.done === true);
+        }
+        else if(e.target.value === 'unbought'){
+            itemsToShow = items.filter(itm => itm.done === false);
+        }
+        else{
+            itemsToShow = items;
+        }
+        setFilteredItems(itemsToShow);
+        
+    }
 
     const setItemDone = async (id) => {
         const item = items.find((item) => item.id === id);
@@ -117,8 +135,8 @@ const Dashboard = () => {
                 {showEditor ? <UpdateItem hidePopup={hidePopups} {...current} /> : null}
                 <header className="dashboard__actions">
                     <button className="btn orange" onClick={() => setShowCreator(true)} > + Add Item</button>
-                    <select name="category">
-                        <option value="" disabled selected>Category</option>
+                    <select onChange={handleCategory} name="category">
+                        <option value="" disabled selected>{catego}</option>
                         <option value="food">food</option>
                         <option value="drinks">drinks</option>
                         <option value="hygiene">hygiene</option>
