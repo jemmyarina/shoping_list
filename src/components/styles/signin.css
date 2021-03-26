@@ -5,3 +5,9 @@
     flex-direction: column;
     height: 80vh;
 }
+
+  @media screen and (max-width: 560px) {
+    .signin-page {
+      width: 100%;
+    }
+  }

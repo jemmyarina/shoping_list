@@ -16,7 +16,7 @@ const NavbarLogged = () => {
             <div className="navbar-logged__logo">Shopping<span>List</span></div>
             <div className="navbar-logged__links">
                 <ul className="">
-                    <li>{uName}</li>
+                    <li className="logged-name">{uName}</li>
                     <li className="profile" onClick={() => setShowLogout(!showLogout)}><img src={userData.photoURL} alt="profile"/></li>
                 </ul>
                 {showLogout ? <ul className="navbar-logged__profile-drop">

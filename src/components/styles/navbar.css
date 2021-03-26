@@ -23,3 +23,9 @@
 .navbar__links .btn-light {
     margin-right: 1.2rem;
 }
+
+@media screen and (max-width: 560px) {
+    .navbar__links .btn-light {
+        margin: 0 .1rem 0 .5rem !important;
+    }
+}

@@ -6,9 +6,9 @@ const Item = ({ data, setItemDone, setItemUpdate, onDelete }) => {
             <input type="checkbox" checked={data.done && true} onChange={() => setItemDone(data.id)} />
             <p>{data.name}</p>
             <span className={`${data.category} category`}>{data.category}</span>
-            <p>last updated {data.date}</p>
-            <button className="edit category" disabled={data.done? true : false} onClick={() => setItemUpdate(data.id)}>edit</button>
-            <button onClick={() => onDelete(data.id)} className="delete category">delete</button>
+            <p className="date"><span>last updated</span> {data.date}</p>
+            <i class="fa fa-pencil-square-o edit" disabled={data.done? true : false} onClick={() => setItemUpdate(data.id)}></i>
+            <i class="fa fa-trash delete" onClick={() => onDelete(data.id)}></i>
         </li>
     );
 }

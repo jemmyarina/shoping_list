@@ -135,6 +135,7 @@ const Dashboard = () => {
                 {showEditor ? <UpdateItem hidePopup={hidePopups} {...current} /> : null}
                 <header className="dashboard__actions">
                     <button className="btn orange" onClick={() => setShowCreator(true)} > + Add Item</button>
+                    <div className="selects">
                     <select onChange={handleCategory} name="category">
                         <option value="" disabled selected>{catego}</option>
                         <option value="food">food</option>
@@ -147,8 +148,8 @@ const Dashboard = () => {
                         <option value="status" disabled selected>{status}</option>
                         <option value="all">all</option>
                         <option value="bought">bought</option>
-                        <option value="unbought">unbought</option>
-                    </select>
+                        <option value="unbought">not bought</option>
+                    </select></div>
                 </header>
                 <section className="dashboard__list">
                     <ul>

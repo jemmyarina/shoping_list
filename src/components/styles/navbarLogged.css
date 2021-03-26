@@ -67,3 +67,9 @@
 .navbar-logged__profile-drop li:hover {
     background: #8FC89C;
 }
+
+@media screen and (max-width: 480px) {
+    .profile {
+        margin-left: .4rem !important;
+    }
+}
