@@ -49,7 +49,7 @@ const SignUp = () => {
                 <div className="card__right">
                     <form className="form" onSubmit={handleSignup}>
                         <h2>Welcome!</h2>
-                        <p>sign up to create your account</p>
+                        <p>Sign up to create your account</p>
                         <label htmlFor="name">Name</label>
                         <input type="text" id="name" name="name" value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} />
                         <label htmlFor="email">Email</label>

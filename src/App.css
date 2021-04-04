@@ -30,18 +30,26 @@ ul {
 }
 
 .card {
-  color: white;
+  color: black;
   height: 500px;
   width: 80%;
   max-width: 1000px;
-  background: #A0440F;
+  background: #BDBFC0;
   border-radius: 6px;
   margin: auto;
   display: flex;
   overflow: hidden;
 }
 
-.card h2,
+.card h2, span{
+  text-align: center;
+  color:#A5501F;
+  font-weight: bolder;
+}
+span{
+  text-decoration: underline;
+  
+}
 .card p,
 .card footer {
   text-align: center;
@@ -71,6 +79,7 @@ ul {
   transform: translateX(-50%);
   width: 90%;
   line-height: 2rem;
+  color: white;
 }
 
 .card__right {
@@ -131,13 +140,13 @@ ul {
 }
 
 .btn-light:hover {
-  background-color: #3E721D;
+  background-color: #015EA7;
   color: white;
   border: none;
 }
 
 .btn-dark {
-  background-color: #3E721D;
+  background-color: #A5501F;
   color: white;
 }
 

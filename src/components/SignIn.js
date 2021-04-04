@@ -36,7 +36,7 @@ const SignIn = () => {
                 <div className="card__right">
                     <form className="form" onSubmit={handleSignin}>
                         <h2>Welcome!</h2>
-                        <p>sign into your account</p>
+                        <p>Sign in into your account</p>
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" name="email" value={loginInfo.email} onChange={(e) => setLoginInfo({ ...loginInfo, email: e.target.value })} />
                         <label htmlFor="password">Password</label>
@@ -44,7 +44,7 @@ const SignIn = () => {
 
                         <button className="btn-dark">Sign In</button>
                     </form>
-                    <footer>Don't have an account? <Link to="/signup">Sign Up</Link></footer>
+                    <footer>Don't have an account? <Link to="/signup"><span>Sign Up</span></Link></footer>
                 </div>
             </div>
         </div>
